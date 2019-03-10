@@ -1,0 +1,118 @@
+@import "../../variables.sass"
+@import "../../extends.sass"
+
+@import url('https://fonts.googleapis.com/css?family=Lateef')
+
+.navigation-wrapper
+.rules
+    // padding: 30px 0
+    text-align: center
+    // background-color: rgb(247, 247, 247)
+.heading
+    padding: 10px 30px
+    background-color: $primary-color
+    display: inline-block
+    border-radius: 10px
+
+    span
+        color: white
+        font-size: 24px
+.title
+    display: flex
+    flex-direction: column
+    padding: 20px 0
+    align-items: center
+
+    .underline
+        border-bottom: 1px solid #ddd
+        width: 280px
+        margin-bottom: 10px
+        margin-top: 10px
+    h2
+        color: $primary-color
+        margin: 0
+    span.hadith
+       font-family: 'Lateef', cursive
+       color: #333
+       font-size: 24pt
+    span.translation
+        color: #666
+        font-size: 14px
+.courses
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-gap: 15px
+    padding-bottom: 60px
+
+    .course
+        border-radius: 5px
+        overflow: hidden
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1)
+        transition: 300ms
+        cursor: pointer
+        background-color: white
+        .img-wrapper
+            height: 150px
+            overflow: hidden
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+                width: 100%
+                min-height: 140px
+        .content
+            height: 60px
+            display: flex
+            padding-left: 15px
+            padding-right: 15px
+            align-items: flex-start
+            justify-content: center
+            flex-direction: column
+            line-height: 20px
+
+            span:first-child
+                color: $secondary-font-color
+                font-size: 12px
+            span:last-child
+                font-weight: bold
+        
+        &:hover
+            box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.1)
+
+@media screen and (max-width: 768px)
+    .courses
+        grid-template-columns: repeat(3, 1fr)
+        .img-wrapper
+            height: 100px !important
+        
+        span:last-child
+            font-size: 12px
+
+    span.hadith
+        font-size: 20pt !important
+    
+
+
+@media screen and (max-width: 480px)
+    .courses
+        grid-template-columns: repeat(2, 1fr)
+        .img-wrapper
+            height: 140px !important
+
+            img
+                height: 140px !important
+                // min-width: 100% !important
+                width: auto
+
+        span:last-child
+            font-size: 12px
+
+    .title
+        font-size: 18px
+        text-align: center
+
+        h2
+            font-size: 16pt
+
+    span.hadith
+        font-size: 16pt !important

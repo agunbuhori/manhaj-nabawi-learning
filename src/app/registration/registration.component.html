@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="rule">
+    <h1>Belajar Gratis Dimanapun dan Kapanpun</h1>
+    <img src="assets/images/rule.png" class="rule" />
+  </div>
+  <div class="forms">
+    <div class="form">
+      <h3>Keterangan :</h3>
+      <p>Manhaj Nabawi Learning menyediakan fasilitas gratis bagi penuntut ilmu dalam mempelajari agama islam. Materi yang dibawakan oleh para asatidz yang mumpuni di bidang keilmuannya. Peserta juga dapat melakukan evaluasi hasil belajar di aplikasi ini. Setelah mengikuti seluruh rangkaian proses pembelajaran, peserta akan menerima rapornya masing-masing.</p>
+      <h3>Syarat Peserta :</h3>
+      <ul>
+        <li>Beragama islam usia minimal 10 tahun;</li>
+        <li>Memiliki niat dan kesungguhan untuk belajar;</li>
+        <li>Ikhlas dan sabar dalam mengikuti proses pembelajaran;</li>
+        <li>Mengamalkan ilmu yang telah dipelajari;</li>
+        <li>Siap mengikuti ujian EHB (Evaluasi Hasil Belajar);</li>
+        <li>Tatap muka dengan asatidz (khusus domisili Bandung);</li>
+        <li>Memiliki nomor WhatsApp.</li>
+      </ul>
+      <h3>Proses Pembelajaran :</h3>
+      <ul>
+        <li>Materi berupa video, audio, dan tulisan;</li>
+        <li>Peserta mengikuti materi di grup WhatsApp atau aplikasi;</li>
+        <li>Ujian dilakukan setelah menyelesaikan materi.</li>
+      </ul>
+    </div>
+    <div class="form">
+      <div class="form-group">
+        <div class="form-wrapper" *ngIf="registrationSuccess">
+          <div class="success">
+            <h3 style="text-align: center; margin: 0; border-bottom: 1px solid #43A047; padding-bottom: 15px; margin-bottom: 15px">Pendaftaran Sukses</h3>
+            <strong>Informasi : </strong>
+            <br/>
+            <span>Kami akan mengirimkan verifikasi berupa akun beserta password via WhatsApp kepada nomor <strong style="red">{{ whatsapp }}</strong> dalam waktu 2x 24 jam.
+              Jika tidak menerima pesan verifikasi, harap hubungi <strong>081319140285</strong> via WhatsApp.
+            </span>
+          </div>
+        </div>
+        <div class="form-wrapper" *ngIf="! registrationSuccess">
+          <h3>Form Pendaftaran</h3>
+          <div class="form-group">
+            <label>Nama Lengkap <span class="required">*</span></label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px">
+              <div class="form-item">
+                <input type="text" placeholder="Nama Depan" [(ngModel)]="firstName" (blur)="validateFirstName($event)"/>
+                <span class="error" *ngIf="firstNameError !== ''">{{firstNameError}}</span>
+              </div>
+              <div class="form-item">
+                <input type="text" placeholder="Nama Belakang" [(ngModel)]="lastName" (blur)="validateLastName($event)"/>
+                <span class="error" *ngIf="lastNameError !== ''">{{lastNameError}}</span>
+              </div>
+            </div>
+          </div>        
+
+          <div class="form-radio">
+            <div class="radio">
+              <input id="radio-1" name="gender" type="radio" [value]="true" checked [(ngModel)]="gender">
+              <label for="radio-1" class="radio-label">Muslim</label>
+            </div>
+            
+            <div class="radio">
+              <input id="radio-2" name="gender" type="radio" [value]="false" [(ngModel)]="gender">
+              <label for="radio-2" class="radio-label">Muslimah</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Tanggal Lahir</label>
+            <div class="form-inline">
+              <select [(ngModel)]="date">
+                <option *ngFor="let date of dates" [value]="date">{{ date }}</option>
+              </select>
+              
+              <select [(ngModel)]="month">
+                <option *ngFor="let month of months; let i = index" [value]="i+1">{{ month }}</option>
+              </select>
+
+              <select [(ngModel)]="year">
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Nomor WhatsApp <span class="required">*</span></label>
+            <input type="text" placeholder="e.g. 08xxxxxxx" [(ngModel)]="whatsapp" (blur)="validateWhatsapp($event)"/>
+            <span class="error" *ngIf="whatsappError !== ''">{{whatsappError}}</span>
+          </div>
+          
+          <div class="form-group">
+            <label>Domisili <span class="required">*</span></label>
+            <input type="text" placeholder="e.g. Bandung" [(ngModel)]="domicilie" (blur)="validateDomicilie($event)"/>
+            <span class="error" *ngIf="domicilieError !== ''">{{domicilieError}}</span>
+          </div>
+          
+          <div class="form-group">
+            <label>Pekerjaan</label>
+            <input type="text" placeholder="e.g. Mahasiswa / Karyawan Swasta" [(ngModel)]="job"/>
+          </div>
+
+          <div class="form-group">
+            <button class="send" [disabled]="completeCount < 3" (click)="register()">{{ completeCount >= 3 ? "Kirim" : "Lengkapi Form" }}</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

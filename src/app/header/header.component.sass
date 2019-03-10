@@ -1,0 +1,21 @@
+@import "../../variables.sass"
+@import "../../extends.sass"
+
+.header 
+    height: 100px
+    border-bottom: 1px solid #eee
+    width: 100%
+    background-color: white
+    @extend %column-centered
+
+    .logo
+        width: 240px
+
+    .slogan
+        color: $primary-font-color
+
+@media screen and (max-width: 768px)
+    .header
+        height: 50px
+        .logo
+            width: 140px

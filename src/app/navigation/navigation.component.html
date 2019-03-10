@@ -1,0 +1,22 @@
+<div class="navigation-wrapper">
+  <ul class="navigation">
+    <li>
+      <a routerLink="/" [class]="activeRoute === '/' ? 'active' : ''">
+        <i class="fas fa-home"></i>
+        <span>HOME</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/learn" [class]="activeRoute === '/learn' ? 'active' : ''">
+        <i class="fas fa-book-reader"></i>
+        <span>BELAJAR</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/registration" [class]="activeRoute === '/registration' ? 'active' : ''">
+        <i class="fas fa-clipboard-list"></i>
+        <span>DAFTAR</span>
+      </a>
+    </li>
+  </ul>
+</div>

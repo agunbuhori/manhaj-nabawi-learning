@@ -1,0 +1,63 @@
+@import "../../variables.sass"
+@import "../../extends.sass"
+
+.container
+    .rule
+        margin-top: 30px
+        text-align: center
+        img
+            width: 100%
+            max-width: 700px
+    .forms
+        padding: 30px 0
+        display: grid
+        grid-template-columns: 2fr 1fr
+        grid-gap: 60px
+
+        .form
+            ul
+                list-style-type: none
+                margin: 0
+                padding: 0
+
+                li:before
+                    content: "✓"
+                    padding-right: 8px
+        
+        .form-radio
+            display: block
+            margin-bottom: 10px
+            width: 100% !important
+            overflow: auto
+            .radio
+                float: left
+                display: grid
+                grid-template-columns: 30px 1fr
+                // float: left
+                width: 100px
+                justify-content: flex-start
+                label
+                    display: inline-block
+                    float: left
+                label:before
+                    content: ""
+
+        .form-group
+            display: flex
+            flex-direction: column
+            margin-bottom: 10px
+
+@media screen and (max-width: 768px)
+    .rule
+        margin-top: 15px !important
+    .forms
+        grid-template-columns: 1fr !important
+
+        p, ul
+            font-size: 14px
+    h1
+        font-size: 20pt
+        margin: 0
+    
+    h3
+        margin: 5px 0

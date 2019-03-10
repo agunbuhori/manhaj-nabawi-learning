@@ -1,0 +1,20 @@
+@import "../../variables.sass"
+@import "../../extends.sass"
+
+.container
+
+    .forms
+        display: grid
+        grid-template-columns: 1fr 1fr
+        padding: 30px 0
+        color: #333
+
+        .form
+            ul
+                margin: 0
+                list-style-type: none
+                padding: 0
+
+                li::before 
+                    content: "✔"
+                    padding-right: 8px

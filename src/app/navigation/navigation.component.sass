@@ -1,0 +1,50 @@
+@import "../../variables.sass"
+@import "../../extends.sass"
+
+.navigation-wrapper
+    height: 50px
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
+    background-color: white
+    @extend %row-centered
+
+    .navigation
+        padding: 0
+        margin: 0
+        list-style-type: none
+
+        li
+            float: left
+            
+            a
+                height: 50px
+                display: inline-block
+                padding-left: 15px
+                padding-right: 15px
+                display: flex
+                align-items: center
+                font-weight: bold
+                font-size: 14px
+                color: $primary-font-color
+                text-decoration: none
+                transition: 300ms
+
+                i
+                    margin-right: 5px
+
+                &:hover
+                    color: $primary-color
+                
+                &.active
+                    color: $primary-color
+                    
+@media screen and (max-width: 768px)
+    .navigation li a
+        font-size: 13px !important
+
+    .navigation-wrapper
+        position: fixed
+        bottom: 0
+        width: 100%
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2)
+        z-index: 9999
+                
